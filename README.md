@@ -269,3 +269,8 @@ async def with_hospital():
 	new_ncd = hospital.merge(ncd_screen, on='hospcode', how='right')
 	return new_ncd.to_dict("records")
 ```
+เมื่อแก้เสร็จแล้วใช้ 2 คำสั่งนี้ 
+```
+sudo docker-compose down
+sudo docker-compose up -d --build
+```
