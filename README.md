@@ -88,5 +88,21 @@ bind-address            = 0.0.0.0
 max_connections         = 505
 max_user_connections    = 500
 ```
-
+สร้างไฟล์ my.conf ใน hospital/config
+```sh
+nano hospital/init/01.sql
+```
+โดยในไฟล์ 01.sql ให้มีเนื้อหาดังนี้
+```sql
+CREATE DATABASE IF NOT EXISTS `hospital`;
+GRANT ALL ON `hospital`.* TO 'user'@'%’;
+```
+เมื่อสร้าง directory และไฟล์ต่าง ๆ ที่จำเป็นเรียบร้อย ให้ใช้คำสั่ง
+```sh
+sudo docker-compose up -d
+```
+แล้วตรวจสอบว่า container ของ database ถูกสร้างสำเร็จ
+```sh
+sudo docker ps
+```
 ## Lab 4 : 
