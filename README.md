@@ -175,3 +175,7 @@ pymysql
 sqlalchemy
 requests
 ```
+สร้าง main.py ใน hospital/ โดย
+```sh
+nano hospital/main.py
+```
