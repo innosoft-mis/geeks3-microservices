@@ -36,3 +36,38 @@ sudo chmod +x /usr/local/bin/docker-compose
 # ทดสอบว่าติดตั้งสำเร็จ
 docker-compose --version
 ```
+
+# Lab 3 : สร้าง Database สำหรับ Microservice แรกของท่าน
+```sh
+mkdir microservices
+cd microservices
+nano docker-compose.yml
+```
+เมื่อเข้าสู่ nano พิมพ์ดังนี้
+```yml
+version: '3'
+services:
+  hospital-db:
+    image: mariadb
+    container_name: hospital-db
+    environment:
+      MYSQL_ROOT_PASSWORD: my_secret_password
+      MYSQL_DATABASE: hospital
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
+    ports:
+      - "6001:3306"
+    volumes:
+      - hospital-dbdata:/var/lib/mysql
+      - hospital-dblog:/var/log/mysql
+      - ./hospital/config/my.conf:/etc/mysql/conf.d/config-file.cnf
+      - ./hospital/init:/docker-entrypoint-initdb.d
+    networks:
+      - moph-network
+volumes:
+  hospital-dbdata: {}
+  hospital-dblog: {}
+networks:
+  moph-network:
+    driver: bridge
+```
