@@ -105,4 +105,15 @@ sudo docker-compose up -d
 ```sh
 sudo docker ps
 ```
-## Lab 4 : 
+## Lab 4 : ติดตั้ง phpMyAdmin เพื่อจัดการ Database
+เพิ่มเนื้อหาส่วนนี้ เข้าในในส่วน services: ของ docker-compose.yml
+```yml
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    networks:
+      - moph-network
+```
