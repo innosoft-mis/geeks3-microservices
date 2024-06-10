@@ -117,3 +117,22 @@ sudo docker ps
     networks:
       - moph-network
 ```
+เมื่อแก้ไข docker-compose.yml เรียบร้อย ให้ใช้คำสั่ง
+```sh
+sudo docker-compose up -d
+```
+ทดสอบดูว่า phpmyadmin ถูกสร้างสำเร็จ
+```
+sudo docker ps
+```
+เข้าใช้งาน phpMyAdmin ผ่าน Web brownser ที่
+```
+http://localhost:8080
+```
+เข้าใช้งาน hospital-db ให้ระบุดังนี้
+```
+Server: hospital-db
+Username: user
+Password: user
+```
+เมื่อเข้าไปแล้วให้เลือก databse ชื่อ hospital แล้วไปที่ tab ชื่อ Import แล้วทำการ Import ข้อมูลจากไฟล์ chospital.sql
