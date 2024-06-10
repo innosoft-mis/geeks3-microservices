@@ -266,7 +266,7 @@ async def with_hospital():
 	r = requests.get("http://hospital")
 	data = r.json()
 	hospital = pd.DataFrame(data)
-	new_ncd = hospital.merge(ncd_screen, on='hospcode', how='right')
+	new_ncd = pd.merge(ncd_screen, hospital, on='hospcode', how='inner')
 	return new_ncd.to_dict("records")
 ```
 เมื่อแก้เสร็จแล้วใช้ 2 คำสั่งนี้ 
