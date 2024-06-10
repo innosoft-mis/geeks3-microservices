@@ -139,7 +139,7 @@ Password: user
 ```
 เมื่อเข้าไปแล้วให้เลือก databse ชื่อ hospital แล้วไปที่ tab ชื่อ Import แล้วทำการ Import ข้อมูลจากไฟล์ chospital.sql (ดาวน์โหลดได้จาก shared drive)
 
-## Lab 5 : สร้าง Microservice แรก กันเถอะ!
+## Lab 5 : สร้าง Microservice แรก กันเถอะ! (hospital service)
 สร้าง Dockerfile ใน hospital/ โดย
 ```sh
 nano hospital/Dockerfile
@@ -223,3 +223,9 @@ sudo docker-compose up -d
 ```
 http://localhost:3001
 ```
+
+## Lab 6 : สร้าง Microservice ที่สอง (ncdscreen service)
+ขั้นตอน
+1. สร้าง database สำหรับ ncdscreen (คล้าย lab 3) แต่เปลี่ยนจาก hospital เป็น ncdscreen
+2. นำข้อมูลเข้า database โดยใช้ phpMyAdmin (ncd_screen.sql อยู่ใน shared drive)
+3. สร้าง microservice ชื่อ ncdscreen (คล้าย lab 5) แต่เปลี่ยนจาก hospital เป็น ncdscreen
