@@ -24,7 +24,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 sudo docker run hello-world
 ```
 
-# Lab 2 : ติดตั้ง Docker compose
+## Lab 2 : ติดตั้ง Docker compose
 
 ```sh
 # ดาวน์โหลด
@@ -37,13 +37,13 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 ```
 
-# Lab 3 : สร้าง Database สำหรับ Microservice แรกของท่าน
+## Lab 3 : สร้าง Database สำหรับ Microservice แรกของท่าน
 ```sh
 mkdir microservices
 cd microservices
 nano docker-compose.yml
 ```
-เมื่อเข้าสู่ nano พิมพ์ดังนี้
+เนื้อหาภายในไฟล์ docker-compose.yml
 ```yml
 version: '3'
 services:
@@ -71,3 +71,22 @@ networks:
   moph-network:
     driver: bridge
 ```
+เมื่อ บันทึกไฟล์ docker-compose.yml เรียบร้อย ให้ใช้คำสั่งต่อไปนี้ เพื่อสร้าง directory ที่จำเป็น
+```sh
+mkdir hospital
+mkdir hospital/config
+mkdir hospital/init
+```
+สร้างไฟล์ my.conf ใน hospital/config
+```sh
+nano hospital/config/my.conf
+```
+โดยในไฟล์ my.conf ให้มีเนื้อหาดังนี้
+```cnf
+[mysqld]
+bind-address            = 0.0.0.0
+max_connections         = 505
+max_user_connections    = 500
+```
+
+## Lab 4 : 
