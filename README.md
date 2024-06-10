@@ -231,3 +231,41 @@ http://localhost:3001
 3. สร้าง microservice ชื่อ ncdscreen (คล้าย lab 5) แต่เปลี่ยนจาก hospital เป็น ncdscreen
 
 สำหรับท่านที่ทำ lab ไม่ทัน สามารถ Download ไฟล์ที่เป็นผลของ lab 6 ได้ [ที่นี่](https://github.com/innosoft-mis/geeks2-microservices-lab/raw/main/files/lab6.zip)
+
+## Lab 7 : ncdscreen service ต้องการข้อมูลจาก hospital service
+
+โจทย์คือ ต้องการสร้าง API ที่ URL http://localhost:3002/with-hospital สำหรับแสดงข้อมูล ncd_screen พร้อมด้วยชื่อสถานพยาบาล
+
+แก้ไขไฟล์ ncdscreen/main.py เพื่อเพิ่ม /with-hospital 
+```python
+from fastapi import FastAPI
+import pandas as pd 
+import sqlalchemy as sa
+import requests
+
+app = FastAPI()
+
+def get_all_ncd_screen_data():
+
+	conn_str = 'mysql+pymysql://user:user@ncdscreen-db:3306/ncdscreen'
+	engine = sa.create_engine(conn_str)
+	conn = engine.connect()
+	hospital = pd.read_sql("ncd_screen", conn)
+	conn.close()
+
+	return hospital
+
+@app.get("/")
+async def root():
+	ncd_screen = get_all_ncd_screen_data()
+	return ncd_screen.to_dict("records")
+
+@app.get("/with-hospital/")
+async def with_hospital():
+	ncd_screen = get_all_ncd_screen_data()
+	r = requests.get("http://hospital")
+	data = r.json()
+	hospital = pd.DataFrame(data)
+	new_ncd = hospital.merge(ncd_screen, on='hospcode', how='right')
+	return new_ncd.to_dict("records")
+```
