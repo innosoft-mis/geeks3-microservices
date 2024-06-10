@@ -138,3 +138,40 @@ Username: user
 Password: user
 ```
 เมื่อเข้าไปแล้วให้เลือก databse ชื่อ hospital แล้วไปที่ tab ชื่อ Import แล้วทำการ Import ข้อมูลจากไฟล์ chospital.sql (ดาวน์โหลดได้จาก shared drive)
+
+## Lab 5 : สร้าง Microservice แรก กันเถอะ!
+สร้าง Dockerfile ใน hospital/ โดย
+```sh
+nano hospital/Dockerfile
+```
+โดยใน Dockerfile มีเนื้อหาดังนี้
+```dockerfile
+FROM python:3.9.7
+WORKDIR /usr/src/app
+RUN  apt-get update && apt-get install -y \
+    libsasl2-dev \
+    python-dev \
+    libldap2-dev \
+    libssl-dev
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+RUN groupadd -r python && useradd -r -g python python
+RUN apt-get update \
+    && apt-get install -y apt-transport-https \
+    && apt-get install mariadb-client -y
+USER python
+CMD ["fastapi", "run", "main.py", "--port", "80"]
+```
+สร้าง requirements.txt ใน hospital/ โดย
+```sh
+nano hospital/requirements.txt
+```
+โดยในไฟล์ requirements.txt มีเนื้อหาดังนี้
+```
+fastapi
+pandas
+pymysql
+sqlalchemy
+requests
+```
