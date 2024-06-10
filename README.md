@@ -111,6 +111,8 @@ sudo docker ps
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
+    environment:
+      PMA_ARBITRARY: 1
     restart: always
     ports:
       - 8080:80
