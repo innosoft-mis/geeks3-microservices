@@ -287,3 +287,7 @@ async def status():
 sudo docker-compose rm -s ncdscreen
 sudo docker-compose up -d --no-deps --build ncdscreen
 ```
+ดูผลลัพธ์ของ function ใหม่ที่เพิ่มเข้าไปผ่าน web browser ที่
+```
+http://localhost:3002/status/
+```
