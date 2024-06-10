@@ -274,3 +274,16 @@ async def with_hospital():
 sudo docker-compose down
 sudo docker-compose up -d --build
 ```
+
+## Lab 8 : แก้ไขและ deploy เฉพาะบาง service
+เพิ่ม code แสดง status ของระบบ ใน ncdscreen/main.py
+```python
+@app.get("/status/")
+async def status():
+	return {'status': 'Online'}
+```
+ทำการ deploy เฉพาะ ncdscreen service นี้โดย
+```sh
+sudo docker-compose rm -s ncdscreen
+sudo docker-compose up -d --no-deps --build ncdscreen
+```
