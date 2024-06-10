@@ -179,3 +179,46 @@ requests
 ```sh
 nano hospital/main.py
 ```
+โดยในไฟล์ main.py มีเนื้อหาดังนี้
+```python
+from fastapi import FastAPI
+import pandas as pd 
+import sqlalchemy as sa
+
+app = FastAPI()
+
+@app.get("/")
+async def root():
+
+	conn_str = 'mysql+pymysql://user:user@hospital-db:3306/hospital'
+	engine = sa.create_engine(conn_str)
+	conn = engine.connect()
+	hospital = pd.read_sql("chospital", conn)
+	conn.close()
+
+	return hospital.to_dict("records")
+```
+เมื่อเพิ่มไฟล์ทั้ง 3 เรียบร้อย ขั้นต่อไปจะต้องไปแก้ไข docker-compose.yml โดยเพิ่มส่วน service: ดังนี้
+```yml
+  hospital:
+    container_name: hospital
+    ports:
+      - "3001:80"
+    build:
+      context: ./hospital
+      dockerfile: Dockerfile
+    depends_on:
+      - hospital-db
+    volumes:
+      - ./hospital:/usr/src/app
+    networks:
+      - moph-network
+```
+หลักจากแก้ไข  docker-compose.yml เรียบร้อย ก็ทำการ run คำสั่ง 
+```sh
+sudo docker-compose up -d
+```
+ถ้า service ทำงานถูกต้องสมบูรณ์จะต้องเข้าดูข้อมูล chospital ผ่าน web browser ได้ที่
+```
+http://localhost:3001
+```
