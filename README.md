@@ -1,5 +1,5 @@
-# geeks2-microservices-lab
-GEEKS 2 : Microservices Lab
+# geeks2-microservices
+GEEKS 2 : Microservices
 
 ## Lab 0 : ติดตั้ง Docker
 ```sh
