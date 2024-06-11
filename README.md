@@ -317,7 +317,7 @@ volumes:
     ports:
       - 6000:8000
       - 7000:9000
-      - 7443:9443
+      - 9443:9443
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
@@ -330,5 +330,5 @@ sudo docker-compose up -d
 ```
 http://localhost:7000
 หรือ
-https://localhost:7443
+https://localhost:9443
 ```
