@@ -291,3 +291,34 @@ sudo docker-compose up -d --no-deps --build ncdscreen
 ```
 http://localhost:3002/status/
 ```
+
+## Lab 9 : ติดตั้ง Portainer
+เพิ่ม volume ชื่อ portainer_data ใน docker-compose.yml
+```yml
+volumes:
+  portainer_data: {}
+```
+เพิ่ม portainer ในส่วน services: ของ docker-compose.yml
+```yml
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    restart: always
+    ports:
+      - 8000:8000
+      - 9000:9000
+      - 9443:9443
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+```
+เมื่อแก้เสร็จแล้วใช้คำสั่งนี้ 
+```
+sudo docker-compose up -d
+```
+หากการติดตั้งสมบูรณ์จะสามารถเข้าใช้งาน portainer ได้ผ่าน web browser ที่
+```
+http://localhost:9000
+หรือ
+https://localhost:9443
+```
