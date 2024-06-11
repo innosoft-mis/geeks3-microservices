@@ -315,9 +315,9 @@ volumes:
     container_name: portainer
     restart: always
     ports:
-      - 8000:8000
-      - 9000:9000
-      - 9443:9443
+      - 6000:8000
+      - 7000:9000
+      - 7443:9443
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
@@ -328,7 +328,7 @@ sudo docker-compose up -d
 ```
 หากการติดตั้งสมบูรณ์จะสามารถเข้าใช้งาน portainer ได้ผ่าน web browser ที่
 ```
-http://localhost:9000
+http://localhost:7000
 หรือ
-https://localhost:9443
+https://localhost:7443
 ```
