@@ -1,7 +1,7 @@
 # geeks2-microservices-lab
 GEEKS 2 : Microservices Lab
 
-## Lab 1 : ติดตั้ง Docker
+## Lab 0 : ติดตั้ง Docker
 ```sh
 # Add Docker's official GPG key:
 sudo apt-get update
@@ -22,6 +22,16 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
 # ทดสอบว่าการติดตั้งสำเร็จ
 sudo docker run hello-world
+```
+
+## Lab 1 : docker image pull สำหรับ images ที่จำเป็น
+
+ใช้คำสั่ง docker image pull สำหรับ images ที่จำเป็น
+```sh
+sudo docker image pull python:3.9.7
+sudo docker image pull mariadb
+sudo docker image pull phpmyadmin/phpmyadmin
+sudo docker image pull portainer/portainer-ce:latest
 ```
 
 ## Lab 2 : ติดตั้ง Docker compose
