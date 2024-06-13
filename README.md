@@ -240,7 +240,7 @@ http://localhost:3001
 2. นำข้อมูลเข้า database โดยใช้ phpMyAdmin (ncd_screen.sql อยู่ใน shared drive)
 3. สร้าง microservice ชื่อ ncdscreen (คล้าย lab 5) แต่เปลี่ยนจาก hospital เป็น ncdscreen
 
-สำหรับท่านที่ทำ lab ไม่ทัน สามารถ Download ไฟล์ที่เป็นผลของ lab 6 ได้ [ที่นี่](https://github.com/innosoft-mis/geeks2-microservices-lab/raw/main/files/lab6.zip)
+สำหรับท่านที่ทำ lab ไม่ทัน สามารถ Download ไฟล์ที่เป็นผลของ lab 6 ได้ [ที่นี่](https://github.com/innosoft-mis/geeks2-microservices/raw/main/files/lab6.zip)
 
 ## Lab 7 : ncdscreen service ต้องการข้อมูลจาก hospital service
 
@@ -332,3 +332,5 @@ http://localhost:9000
 หรือ
 https://localhost:9443
 ```
+สำหรับท่านที่ทำ lab ไม่ทัน สามารถ Download ไฟล์ที่เป็นผลของ lab 9 ได้ [ที่นี่](https://github.com/innosoft-mis/geeks2-microservices/raw/main/files/lab9.zip)
+
