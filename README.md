@@ -1,7 +1,7 @@
 # geeks2-microservices
 GEEKS 2 : Microservices
 
-## Lab 0 : ติดตั้ง Docker
+## Lab 0 : ติดตั้ง Docker (สำหรับท่านที่ใช้ LINUX)
 ```sh
 # Add Docker's official GPG key:
 sudo apt-get update
