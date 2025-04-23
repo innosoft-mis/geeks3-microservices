@@ -1,5 +1,5 @@
-# geeks2-microservices
-GEEKS 2 : Microservices
+# geeks3-microservices
+GEEKS 3 : Microservices
 
 ## Lab 0 : ติดตั้ง Docker (สำหรับท่านที่ใช้ LINUX)
 ```sh
