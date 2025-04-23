@@ -34,7 +34,7 @@ sudo docker image pull phpmyadmin/phpmyadmin
 sudo docker image pull portainer/portainer-ce:latest
 ```
 
-## Lab 2 : ติดตั้ง Docker compose
+## Lab 2 : ติดตั้ง Docker compose (สำหรับท่านที่ใช้ LINUX)
 
 ```sh
 # ดาวน์โหลด
