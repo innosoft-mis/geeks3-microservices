@@ -333,7 +333,3 @@ http://localhost:9000
 https://localhost:9443
 ```
 สำหรับท่านที่ทำ lab ไม่ทัน สามารถ Download ไฟล์ที่เป็นผลของ lab 9 ได้ [ที่นี่](https://github.com/innosoft-mis/geeks2-microservices/raw/main/files/lab9.zip)
-
-## Lab 11 : Lumpini
-
-ดูเฉลยได้ [ที่นี่](https://github.com/innosoft-mis/geeks2-microservices/raw/main/files/microservices_lumpini.zip) ครับ
