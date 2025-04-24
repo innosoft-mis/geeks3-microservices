@@ -234,6 +234,8 @@ sudo docker-compose up -d
 http://localhost:3001
 ```
 
+สำหรับท่านที่ทำ lab ไม่ทัน สามารถ Download ไฟล์ที่เป็นผลของ lab 6 ได้ [ที่นี่](https://github.com/innosoft-mis/geeks2-microservices/raw/main/files/lab5_microservices.zip)
+
 ## Lab 6 : สร้าง Microservice ที่สอง (ncdscreen service)
 ขั้นตอน
 1. สร้าง database สำหรับ ncdscreen (คล้าย lab 3) แต่เปลี่ยนจาก hospital เป็น ncdscreen
