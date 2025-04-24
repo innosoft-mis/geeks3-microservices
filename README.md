@@ -233,7 +233,10 @@ sudo docker-compose up -d
 ```
 http://localhost:3001
 ```
-
+แต่ถ้ามันไม่ยอมเปลี่ยนแปลง ให้เพิ่ม --build
+```sh
+sudo docker-compose up -d --build
+```
 สำหรับท่านที่ทำ lab ไม่ทัน สามารถ Download ไฟล์ที่เป็นผลของ lab 5 ได้ [ที่นี่](https://github.com/innosoft-mis/geeks2-microservices/raw/main/files/lab5_microservices.zip)
 
 ## Lab 6 : สร้าง Microservice ที่สอง (ncdscreen service)
